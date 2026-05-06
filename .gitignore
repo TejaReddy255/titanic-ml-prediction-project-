@@ -3,7 +3,6 @@ __pycache__/
 .venv/
 .env
 model/titanic_pipeline.pkl
-model/metadata.json
-data/titanic.csv
+model/metadata.json\
 .pytest_cache/
 *.log

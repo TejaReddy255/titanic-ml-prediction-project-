@@ -1,0 +1,32 @@
+{
+  "accuracy": 0.8101,
+  "precision": 0.8302,
+  "recall": 0.6377,
+  "f1_score": 0.7213,
+  "roc_auc": 0.835,
+  "threshold": 0.6,
+  "cv_roc_auc": 0.8788,
+  "best_params": {
+    "classifier__n_estimators": 300,
+    "classifier__min_samples_split": 6,
+    "classifier__min_samples_leaf": 2,
+    "classifier__max_features": 0.4,
+    "classifier__max_depth": 15,
+    "classifier__class_weight": {
+      "0": 1,
+      "1": 1.5
+    }
+  },
+  "top_features": {
+    "Fare": 0.1997,
+    "Title_Mr": 0.1728,
+    "Age": 0.1522,
+    "Sex_male": 0.117,
+    "Sex_female": 0.0985,
+    "FamilySize": 0.0605,
+    "Pclass_3": 0.0503,
+    "Pclass_1": 0.0318,
+    "Title_Mrs": 0.0201,
+    "Embarked_S": 0.0173
+  }
+}
