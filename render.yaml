@@ -1,0 +1,21 @@
+# render.yaml
+# -----------
+# Render Blueprint — defines the entire infrastructure in code.
+# Usage:
+#   1. Push project to GitHub
+#   2. render.com → New → Blueprint → connect repo
+#   Render reads this file and creates the web service automatically.
+
+services:
+  - type: web
+    name: titanic-ml-api
+    env: docker
+    plan: free                       # upgrade to 'starter' ($7/mo) to remove spin-down
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /               # Render pings GET / after each deploy
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: PYTHONUNBUFFERED
+        value: "1"
