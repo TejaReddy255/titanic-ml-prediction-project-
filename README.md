@@ -1,25 +1,9 @@
-# 🚢 Titanic Survival Prediction — ML System v2
+# 🚢 Titanic Survival Prediction — ML System 
 
 Production-ready Machine Learning system that predicts Titanic passenger survival.
-Rebuilt from the ground up addressing all v1 evaluation gaps.
+.
 
 ---
-
-## What changed vs v1
-
-| Area | v1 | v2 |
-|---|---|---|
-| API framework | Flask (no `/docs`) | **FastAPI** (Swagger UI built-in) |
-| Input validation | Manual dict checks | **Pydantic schemas** |
-| Features | 5 raw features | **8 features + 3 engineered** |
-| Recall | 68.8% | **Threshold-optimised for F1** |
-| Dockerfile PORT | Hardcoded 5000 | **`$PORT` env var** |
-| render.yaml | ❌ | **✅ included** |
-| Architecture diagram | Chat only | **✅ in this README** |
-| Dataset | Synthetic only | **Real Kaggle CSV supported** |
-
----
-
 ## Architecture
 
 ```
@@ -80,8 +64,8 @@ Rebuilt from the ground up addressing all v1 evaluation gaps.
 titanic-ml-v2/
 │
 ├── data/
-│   ├── dataset.py          # Loader: real Kaggle CSV or calibrated synthetic
-│   └── titanic.csv         # ← drop real Kaggle train.csv here (optional)
+│   ├── dataset.py          # Loader:  Kaggle CSV  file
+│   └── titanic.csv         # ← drop  Kaggle csv file
 │
 ├── src/
 │   ├── features.py         # TitanicFeatureEngineer (FamilySize, IsAlone, Title)
@@ -105,19 +89,6 @@ titanic-ml-v2/
 ├── render.yaml             # Render Blueprint (one-click deploy)
 └── README.md
 ```
-
----
-
-## Real Dataset (Recommended)
-
-To get the best model performance, use the official Kaggle Titanic dataset:
-
-1. Download from https://www.kaggle.com/c/titanic/data
-2. Rename `train.csv` → `titanic.csv`
-3. Place it at `data/titanic.csv`
-4. Re-run `python src/train.py`
-
-The loader detects the file automatically — no code changes needed.
 
 ---
 
@@ -254,33 +225,6 @@ docker stop titanic-api && docker rm titanic-api
 ```
 
 ---
-
-## Deploy to Render
-
-### Option A — GitHub Blueprint (auto-deploys on push)
-
-```bash
-git init && git add . && git commit -m "Titanic ML v2"
-git remote add origin https://github.com/YOUR_USERNAME/titanic-ml-api.git
-git push -u origin main
-```
-
-Then: **render.com → New → Blueprint → connect repo → Apply**
-
-The `render.yaml` file in this repo is read automatically — no manual configuration.
-
-### Option B — Docker Hub image
-
-```bash
-docker build -t titanic-ml-api .
-docker tag titanic-ml-api YOUR_HUB/titanic-ml-api:latest
-docker push YOUR_HUB/titanic-ml-api:latest
-```
-
-Then: **render.com → New → Web Service → Existing Image → enter image URL → Port 5000**
-
----
-
 ## Running Tests
 
 ```bash
