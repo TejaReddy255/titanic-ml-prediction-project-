@@ -1,16 +1,6 @@
 """
 src/train.py
 ------------
-End-to-end training script:
-  1. Load / generate data
-  2. Drop irrelevant raw columns
-  3. Feature engineering  (FamilySize, IsAlone, Title)
-  4. Train/test split
-  5. sklearn Pipeline:  ColumnTransformer  →  RandomForestClassifier
-  6. RandomizedSearchCV  (hyperparameter tuning)
-  7. Threshold optimisation  (maximise F1 on validation set  →  fixes low Recall)
-  8. Evaluate on test set
-  9. Persist pipeline + metadata
 """
 
 import os
